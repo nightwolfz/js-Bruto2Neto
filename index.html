@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bruto2Neto</title>
+    <link rel="stylesheet"  href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+    <script src="main.js"></script>
+    <style>
+        .ui-page[data-role=page] {
+            width: 480px !important;
+            margin: 0 auto;
+            position: static !important;
+            border-left: 1px solid #aaa;
+            border-right: 1px solid #aaa;
+        }
+        .ui-controlgroup-horizontal .ui-controlgroup-controls .ui-radio {
+            width: 50%;
+        }
+        .ui-controlgroup-horizontal .ui-controlgroup-controls {
+            width: 100%;
+        }
+        .ui-field-contain div.ui-slider-switch {
+            width: 9.8em
+        }
+        .ui-radio label {
+            text-align: center !important;
+        }
+        #div_social, #div_ruling {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div data-role="header" data-theme="a" class="ui-btn-active"><h2>Bruto 2 Neto</h2></div>
+
+    <div data-role="content">
+
+        <div data-role="navbar">
+
+        </div>
+
+        <div class="ui-body ui-body-a ui-mini">
+            <br>
+
+            <!-- Form -->
+            <fieldset data-role="controlgroup" data-type="horizontal">
+                <input type="radio" name="radio-choice-t-6" id="radio-choice-t-6a" value="on" checked="checked">
+                <label for="radio-choice-t-6a">Arbeider</label>
+                <input type="radio" name="radio-choice-t-6" id="radio-choice-t-6b" value="off">
+                <label for="radio-choice-t-6b">Bediende</label>
+            </fieldset>
+
+            <fieldset data-role="controlgroup">
+                <select name="select-v-2a" id="select-v-2a">
+                    <option value="#" selected="selected">Gehuwd of wettelijk samenwonend</option>
+                    <option value="#">Ongehuwd of feitelijk samenwonend</option>
+                </select>
+            </fieldset>
+
+            <!-- Yes / No switches -->
+            <div class="ui-body ui-body-a">
+
+                <div data-role="fieldcontain">
+                    <label for="flip-social" style="width: 65%;">Social security in the Netherlands</label>
+                    <select name="flip-ssec" id="flip-social" data-role="slider">
+                        <option value="no" selected="selected">No / Nee</option>
+                        <option value="yes">Yes / Ja</option>
+                    </select>
+                </div>
+                <div data-role="fieldcontain">
+                    <label for="flip-ruling" style="width: 65%;">30% ruling</label>
+                    <select name="flip-ruling" id="flip-ruling" data-role="slider">
+                        <option value="no" selected="selected">No / Nee</option>
+                        <option value="yes">Yes / Ja</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <fieldset data-role="fieldcontain" data-type="horizontal" >
+                <legend>Monthly Income</legend>
+                <input type="number" name="grossIncome" id="grossIncome" value="5500" data-corners="false">
+            </fieldset>
+
+        </div>
+
+
+        <br>
+
+        <div class="ui-body ui-body-a ui-mini" id="div_results">
+            <div data-role="fieldcontain">
+                <label style="width: 65%;">Taxable Income</label>
+                <label><b>&euro;</b> <span id="iTaxableIncome"></span></label>
+            </div>
+            <div data-role="fieldcontain">
+                <label style="width: 65%;">Income Tax</label>
+                <label><b>&euro;</b> <span id="iIncomeTax"></span></label>
+            </div>
+            <div data-role="fieldcontain" id="div_social">
+                <label style="width: 65%;">Social Security</label>
+                <label><b>&euro;</b> <span id="iSocialSecurity"></span></label>
+            </div>
+            <div data-role="fieldcontain">
+                <label style="width: 65%;">General Tax Credit</label>
+                <label><b>&euro;</b> <span id="iGeneralTax"></span></label>
+            </div>
+            <div data-role="fieldcontain">
+                <label style="width: 65%;">Labour Tax Credit</label>
+                <label><b>&euro;</b> <span id="iLabourTax"></span></label>
+            </div>
+            <div data-role="fieldcontain" id="div_ruling">
+                <label style="width: 65%;">30% ruling</label>
+                <label><b>&euro;</b> <span id="iPercent30Ruling"></span></label>
+            </div>
+            <hr style="border: 1px solid #eee">
+            <div data-role="fieldcontain">
+                <label style="width: 65%;"><b>Net Income</b></label>
+                <label><b>&euro; <span id="iNetIncome"></span></b></label>
+            </div>
+
+        </div>
+
+
+        <!-- Calculate / Reset -->
+        <fieldset class="ui-grid-a">
+            <div class="ui-block-a">
+                <button class="ui-btn ui-shadow" id="calculateNet">Calculate</button>
+            </div>
+            <div class="ui-block-b">
+                <button type="reset" class="ui-btn ui-btn-b ui-shadow" data-theme="b">Reset</button>
+            </div>
+        </fieldset>
+
+    </div>
+
+    <div data-role="footer" style="padding:4px 8px">
+        <small>
+            Disclamer: This app was made under an hour as an exercice to freshen my memory and to add it to my portfolio.
+            Don't take it too seriously.
+        </small>
+    </div>
+ 
+</body>
+</html>
